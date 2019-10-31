@@ -1,8 +1,8 @@
 import React from "react";
 
-const Todo = props => {
+const Task = props => {
     let className = "task";
-    if (props.toDo.accomplished) {
+    if (props.task.accomplished) {
         className = className + " accomplished";
     }
 
@@ -17,4 +17,4 @@ const Todo = props => {
     );
 };
 
-export default Todo; 
+export default Task; 
