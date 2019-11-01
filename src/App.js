@@ -45,12 +45,12 @@ class App extends React.Component {
     
   }
   
-  toggleAccomplished(taskId) {
-    console.log("toggleAccomplished: ", taskId);
+  toggleAccomplished = taskId => {
+    console.log(`toggleAccomplished: `, taskId);
 
   this.setState ({
     tasks:this.state.tasks.map(task => {
-      if (task.id ===taskId) {
+      if (task.id === taskId) {
         return {
           ...task,
           accomplished: !task.accomplished
@@ -89,13 +89,15 @@ addTask = (taskName) => {
     console.log("rendering ...");
     return (
       <div className="App">
-        <h2>My To Do List:</h2>
-        <TodoForm addTask={this.addTask} />
+        <div className="header">
+          <h2>My To Do List:</h2>
+          <TodoForm addTask={this.addTask} />
+          </div>
         <TodoList
         tasks={this.state.tasks}
-        toggledAccomplished={this.toggleAccomplished}
-        clearTask={this.clearTask}
-      />
+          toggledAccomplished={this.toggleAccomplished}
+          clearTask={this.clearTask}
+        />
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React from "react";
 
 const Task = props => {
+
     let className = "task";
     if (props.task.accomplished) {
         className = className + " accomplished";
