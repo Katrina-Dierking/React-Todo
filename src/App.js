@@ -41,19 +41,18 @@ class App extends React.Component {
     this.state = {
       tasks: data,
     };
-    this.toggleAccomplished = this.toggleAccomplished.bind(this);
-    
+   
   }
   
-  toggleAccomplished = taskId => {
-    console.log(`toggleAccomplished: `, taskId);
+  toggleCompleted = taskId => {
+    console.log(`toggleCompleted: `, taskId);
 
   this.setState ({
     tasks:this.state.tasks.map(task => {
       if (task.id === taskId) {
         return {
           ...task,
-          accomplished: !task.accomplished
+          completed: !task.completed
         };
       }
       return task;
@@ -65,7 +64,7 @@ clearTask = () => {
   console.log("clear Task");
   this.setState({
     tasks: this.state.tasks.filter(task => {
-      return !task.accomplished;
+      return !task.completed;
     })
   });
 };
@@ -95,7 +94,7 @@ addTask = (taskName) => {
           </div>
         <TodoList
         tasks={this.state.tasks}
-          toggledAccomplished={this.toggleAccomplished}
+          toggleCompleted={this.toggleCompleted}
           clearTask={this.clearTask}
         />
       </div>

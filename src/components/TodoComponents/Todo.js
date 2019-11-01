@@ -1,14 +1,15 @@
 import React from "react";
 
 const Task = props => {
-
+console.log(props)
     let className = "task";
-    if (props.task.accomplished) {
-        className = className + " accomplished";
+    if (props.task.completed) {
+        className = className + " completed";
     }
 
     const handleClick = () => {
-        props.toggleAccomplished(props.task.id);
+        props.toggleCompleted(props.task.id);
+
     };
 
     return (
